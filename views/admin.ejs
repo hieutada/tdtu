@@ -1,0 +1,149 @@
+<p class="mt-2">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        Tạo tài khoản
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" id="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" id="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Tên Phòng Khoa</label>
+            <input type="text" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Cấp quyền chuyên mục</label>
+            <div style="height: 100px; overflow-y: scroll">
+                <% for (let i=0; i< 10; i++) { %>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Chuyên mục
+                        </label>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">Tạo</button>
+    </div>
+</div>
+<div class="table-responsive mt-2">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th class="text-right">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i < 5; i++) {%>
+                <tr id="row<%= i+1 %>">
+                    <th><%= i+1 %></th>
+                    <td>Khoa <%= i+1 %></td>
+                    <td>khoa<%= i+1 %>@tdtu.edu.vn</td>
+                    <td>pass<%= i+1 %></td>
+                    <td class="text-right">
+                        <button class="btn btn-sm btn-info btn-edit-user"
+                        data-id="<%= i+1 %>"
+                        data-name="Khoa <%= i+1 %>"
+                        data-username="khoa<%= i+1 %>@tdtu.edu.vn"
+                        data-password="pass<%= i+1 %>"
+                        data-toggle="modal"
+                        data-target="#confirm-edit-user">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger btn-delete-user"
+                        data-id="<%= i+1 %>"
+                        data-name="Khoa <%= i+1 %>"
+                        data-toggle="modal"
+                        data-target="#confirm-delete-user">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- EDIT USER MODAL -->
+<div id="confirm-edit-user" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Chỉnh sửa tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" id="edit-username" class="form-control" value="">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="text" id="edit-password" class="form-control" value="">
+                </div>
+                <div class="form-group">
+                    <label for="">Tên Phòng Khoa</label>
+                    <input type="text" id="edit-name" class="form-control" value="">
+                </div>
+                <div class="form-group">
+                    <label for="">Cấp quyền chuyên mục</label>
+                    <div style="height: 80px; overflow-y: scroll">
+                        <% for (let i=0; i< 10; i++) { %>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Chuyên mục
+                                </label>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button data-id="?" id="btn-edit-user-confirmed" type="button" class="btn btn-danger">Cập nhật</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE USER MODAL -->
+<div id="confirm-delete-user" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa người dùng</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Bạn có chắc rằng muốn xóa <strong id="delete-name">None</strong>?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button data-id="?" id="btn-delete-user-confirmed" type="button" class="btn btn-danger">Xóa</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- /left-column -->
+        <div class="col-lg-8 col-xl-9 mt-3">
+            <div class="row justify-content-center">
+                <div class="col-sm-auto"></div>
+                <div class="col-sm-11 col-md-10 col-lg-11 col-xl-8">
+                    <h6>TẤT CẢ THÔNG BÁO</h6>
+                    <table class="table table-striped border">
+                        <tr>
+                            <td>
+                                <small><i>[Phòng Tài chính]</i> - 23/11/2020</small> <br>
+                                <a href="">Gia hạn học phí Tiếng Anh</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small><i>[Phòng Đại học]</i> - 22/11/2020</small> <br>
+                                <a href="">Đăng ký môn học HK2 2020-21</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small><i>[Phòng CT HSSV]</i> - 23/11/2020</small> <br>
+                                <a href="">Lịch chào cờ ngày 3/1/2021</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>[Phòng CT HSSV] - 20/11/2020</small> <br>
+                                <a href="">Tham dự lễ chúc mừng ngày NGVN</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small><i>[Phòng Đại học]</i> - 22/11/2020</small> <br>
+                                <a href="">Đăng ký môn học HK2 2020-21</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small><i>[Phòng CT HSSV]</i> - 23/11/2020</small> <br>
+                                <a href="">Lịch chào cờ ngày 3/1/2021</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>[Phòng CT HSSV] - 20/11/2020</small> <br>
+                                <a href="">Tham dự lễ chúc mừng ngày NGVN</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>[Phòng CT HSSV] - 20/11/2020</small> <br>
+                                <a href="">Tham dự lễ chúc mừng ngày NGVN</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>[Phòng CT HSSV] - 20/11/2020</small> <br>
+                                <a href="">Tham dự lễ chúc mừng ngày NGVN</a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trở về</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Tiếp</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-auto"></div>
+            </div>
+        </div>
+
+        <!-- right-column -->
+        <div class="col-lg-4 col-xl-3 mt-3">
+            <div class="row justify-content-center">
+                <div class="col-sm-auto"></div>
+                <div class="col-sm-11 col-md-10 col-lg-12">
+                    <h6>THÔNG BÁO MỚI</h6>
+                    <div class="border rounded-lg pt-2" style="height: 400px; overflow-y: scroll">
+                        <table class="table table-striped">
+                            <% for (var i=0; i < 7; i++ ) { %>
+                                <tr>
+                                    <td>
+                                        <small><i>[Phòng Tài chính]</i> - 23/11/2020</small>
+                                        <br />
+                                        <a href="">Gia hạn học phí Tiếng Anh</a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </table>
+                        <div class="d-flex justify-content-center mb-3">
+                            <a href="/notifications"><i>Xem tất cả >></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Nhạc -->
+                    <marquee direction="left" class="mt-3">
+                        <i class="fa fa-music"></i>
+                        Mời các bạn lắng nghe bài hát
+                        <i>Hành khúc Đại Học Tôn Đức Thắng</i>
+                        <i class="fa fa-music"></i>
+                    </marquee>
+                    <audio controls class="form-control form-control-lg">
+                        <source src="audio\HanhKhucDHTonDucThang.mp3" type="audio/mpeg">
+                    </audio>
+
+                    <!-- Lịch -->
+                    <div class="embed-responsive embed-responsive-1by1 border rounded-lg mt-3 py-2">
+                        <iframe class="embed-responsive-item"
+                            src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FHo_Chi_Minh&amp;src=aGlldXRhZGEya0BnbWFpbC5jb20&amp;src=Y2xhc3Nyb29tMTA0MTM5ODExODk3OTA3MjcyMjQ3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=MjJhNzRpcXFsdWRtcG1ia2h0N3FiODdsOWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23039BE5&amp;color=%23007b83&amp;color=%23AD1457&amp;showTitle=0&amp;showCalendars=0&amp;showTabs=0&amp;showDate=1&amp;showTz=0&amp;showNav=1"
+                            frameborder="0" scrolling="no"></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
