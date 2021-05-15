@@ -152,8 +152,13 @@
                 var profilePic = `<%= avatar %>`
             </script>
 
+        <% if (locals.scriptPost == 1) { %>
             <script src="/javascripts/post.js"></script>
-
+        <% } else if (locals.scriptPost == 2) { %>
+            <script src="/javascripts/postuser.js"></script>
+        <% } %>
+    
+    <%- include('../partials/styleSocket.ejs') %>
 </body>
 
 </html>

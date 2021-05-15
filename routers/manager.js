@@ -17,12 +17,17 @@ router.get('/', middleware.requireLogin, (req, res) => {
 router.get('/admin', middleware.requireLoginAdmin, (req, res) => {
     return res.render('admin', {
         title: 'Admin',
-        layout: './layouts/managerLayout'
+        layout: './layouts/managerLayout',
+        idUser: req.user._id
     })
 })
 
 router.get('/faculty', middleware.requireLoginFaculty, (req, res) => {
-    return res.render('faculty', { title: 'Phòng Khoa', layout: './layouts/managerLayout' })
+    return res.render('faculty', {
+        title: 'Phòng Khoa',
+        layout: './layouts/managerLayout',
+        idUser: req.user._id
+    })
 })
 
 module.exports = router

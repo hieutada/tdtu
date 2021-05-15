@@ -7,10 +7,11 @@ const UserSchema = new Schema({
     displayName: {type: String},
     username : {type: String, required: true, trim: true},
     password: {type: String},
-    profilePic: {type: String},
+    profilePic: {type: String, default: "/images/tdtu_avt.png"},
     role: {type: String},
     grade: {type: String},
-    major: {type: String}
+    major: {type: String},
+    access: {type: String}
 }, {timestamps: true})
 
 const User = mongoose.model('User', UserSchema)

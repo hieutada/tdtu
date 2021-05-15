@@ -1,11 +1,15 @@
-
-
 $(document).ready(function () {
 
     $.ajax({
-        url: '/api/post/',
+        url: '/api/post',
         type: 'GET',
         success: (allPost) => {
+
+            console.log(allPost[0].who._id)
+
+            // for (let i=0; i<allPost.length; i++) {
+
+            // }
 
             var reAllPost = allPost.reverse()
 
@@ -36,35 +40,6 @@ $(document).ready(function () {
             })
         }
     })
-})
-
-
-
-$('#buttonPost').click(function (e) {
-    let record = $('#inputPost').val()
-    let linkvideo = $('#linkYT').val()
-    // let image = $('#customFile').val()
-
-    let data = {
-        who: getID,
-        content: record,
-        youtube: linkvideo
-    }
-
-    $('#inputPost').val('')
-
-    $.ajax({
-        url: '/api/post',
-        type: 'POST',
-        data: data,
-        success: (newPost) => {
-            console.log(newPost)
-            let box = statusBox(newPost)
-            $('#timeline').prepend(box)
-        }
-    })
-
-
 })
 
 function convertEmbed(url) {
@@ -210,35 +185,4 @@ function statusBox(post) {
         </div>
     </div>
     `
-}
-
-function deleteBtn() {
-    $(this).click(e => {
-        let btn = e.target
-        let id = btn.dataset.id
-        $('#comfirm-delete-btn').val(id)
-    })
-}
-
-$('#comfirm-delete-btn').click((e) => {
-    let id = $('#comfirm-delete-btn').val()
-    $('.close').click()
-    $.ajax({
-        url: '/api/post',
-        type: 'DELETE',
-        data: { id: id },
-        success: () => {
-            $(`#${id}`).remove()
-        }
-    })
-})
-
-function showNoti(noti){
-    $('.notiRealtime').attr('style', 'display:block')
-    $('.notiRealtime').html(`
-        ${noti.postedBy.displayName} vừa đăng <a href="/notification/show/${noti._id}">1 thông báo mới!</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    `)
 }

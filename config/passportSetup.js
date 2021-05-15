@@ -49,7 +49,7 @@ passport.use(new GoogleStrategy({
 passport.use(new LocalStrategy(
     async function(username, password, done) {
         var user = await User.findOne({username: username})
-        if (user.username == 'admin@tdtu.edu.vn' && user.password == password) {
+        if (user.password == password) {
             return done(null, user)
         } else {
             return done(null, false)

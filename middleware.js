@@ -17,7 +17,7 @@ exports.requireLoginAdmin = (req, res, next) => {
 exports.requireLoginFaculty = (req, res, next) => {
     if (req.user) {
         // Xử lý role
-        if (req.user.role == 'student') {
+        if (req.user.role == 'faculty') {
             return next()
         }
     }

@@ -17,7 +17,8 @@
                                 <%= username %>
                             </p>
                             <div class="text-muted">Khoa: Công Nghệ Thông Tin</div>
-                            <div class="text-muted">Lớp: <%= grade %></div>
+                            <div class="text-muted">Lớp: <%= grade %>
+                            </div>
                             <button class="btn btn-sm px-0" type="button" data-toggle="collapse"
                                 data-target="#collapseEditProfile" aria-expanded="false"
                                 aria-controls="collapseExample">
@@ -38,73 +39,71 @@
 
                 <form class="form collapse mt-2" id="collapseEditProfile">
                     <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col-md">
-                                    <hr>
-                                    <div class="d-flex h5">
-                                        <b>Thông tin</b>
-                                        <button class="btn btn-sm btn-secondary ml-auto">Save <i class="fa fa-floppy-o"></i></button>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ảnh đại diện</label>
-                                        <div class="form-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" />
-                                                <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Họ và Tên</label>
-                                        <input class="form-control" type="text" name="name"
-                                            placeholder="<%= displayName %>" value="<%= displayName %>" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Lớp</label>
-                                        <input class="form-control" type="text" name="username" value="<%= grade %>" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Khoa</label>
-                                        <select class="custom-select">
-                                            <option value="<%= major %>" selected>Chọn Khoa</option>
-                                            <% for(let i=0; i < listmajor.length; i++) {%>
-                                                <option value="<%= listmajor[i] %>"> 
-                                                    <%= listmajor[i] %>
-                                                </option>
-                                            <% } %>
-                                        </select>
+                        <div class="col-md">
+                            <hr>
+                            <div class="d-flex h5">
+                                <b>Thông tin</b>
+                                <button class="btn btn-sm btn-secondary ml-auto">Save <i
+                                        class="fa fa-floppy-o"></i></button>
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh đại diện</label>
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" />
+                                        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
                                     </div>
                                 </div>
-                                <div class="col-md">
-                                    <hr>
-                                    <div class="d-flex h5">
-                                        <b>Đổi mật khẩu</b>
-                                        <button class="btn btn-sm btn-secondary ml-auto">Save <i class="fa fa-floppy-o"></i></button>
+                            </div>
+                            <div class="form-group">
+                                <label>Họ và Tên</label>
+                                <input class="form-control" type="text" name="name" placeholder="<%= displayName %>"
+                                    value="<%= displayName %>" />
+                            </div>
+                            <div class="form-group">
+                                <label>Lớp</label>
+                                <input class="form-control" type="text" name="username" value="<%= grade %>" />
+                            </div>
+                            <div class="form-group">
+                                <label>Khoa</label>
+                                <select class="custom-select">
+                                    <option value="<%= major %>" selected>Chọn Khoa</option>
+                                    <% for(let i=0; i < listmajor.length; i++) {%>
+                                        <option value="<%= listmajor[i] %>">
+                                            <%= listmajor[i] %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <hr>
+                            <div class="d-flex h5">
+                                <b>Đổi mật khẩu</b>
+                                <button class="btn btn-sm btn-secondary ml-auto">Save <i
+                                        class="fa fa-floppy-o"></i></button>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Mật khẩu hiện tại</label>
+                                        <input class="form-control" type="password" placeholder="••••••" />
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Mật khẩu hiện tại</label>
-                                                <input class="form-control" type="password" placeholder="••••••" />
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Mật khẩu mới</label>
+                                        <input class="form-control" type="password" placeholder="••••••" />
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Mật khẩu mới</label>
-                                                <input class="form-control" type="password" placeholder="••••••" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Xác nhận mật khẩu mới</label>
-                                                <input class="form-control" type="password" placeholder="••••••" />
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Xác nhận mật khẩu mới</label>
+                                        <input class="form-control" type="password" placeholder="••••••" />
                                     </div>
                                 </div>
                             </div>
@@ -113,5 +112,15 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="row justify-content-center"">
+
+        <div class="col-sm-11 col-md-10 col-lg-11 col-xl-8">
+            <div id="timeline">
+
+            </div>
+        </div>
+
     </div>
 </div>
