@@ -61,7 +61,9 @@
                         <div class="h6 m-0">
                             <%= displayName %>
                         </div>
-                        <small><%= roleUser %></small>
+                        <small>
+                            <%= roleUser %>
+                        </small>
                     </div>
                 </a>
             </div>
@@ -84,7 +86,8 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownClassify">
                         <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Phòng Ban</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Chủ đề</a>
-                        <a class="dropdown-item" href="/notifications"><i class="fa fa-archive"></i> Tất cả thông báo</a>
+                        <a class="dropdown-item" href="/notifications"><i class="fa fa-archive"></i> Tất cả thông
+                            báo</a>
                     </div>
                 </div>
 
@@ -130,12 +133,12 @@
         <script>
             // Sidebar
             $("#menu-toggle").click(function (e) {
-                // e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
 
             // Upload file form
             $(".custom-file-input").on("change", function () {
+                console.log('This')
                 var fileName = $(this).val().split("\\").pop();
                 $(this)
                     .siblings(".custom-file-label")
@@ -145,20 +148,21 @@
         </script>
 
         <!-- User -->
-        <% var id = idUser %>
-        <% var avatar = profilePic %>
+        <% var id=idUser %>
+        <% var avatar=profilePic %>
             <script>
                 var getID = `<%= id  %>`
                 var profilePic = `<%= avatar %>`
             </script>
 
-        <% if (locals.scriptPost == 1) { %>
+        <% if (locals.scriptPost==1) { %>
             <script src="/javascripts/post.js"></script>
-        <% } else if (locals.scriptPost == 2) { %>
+        <% } else if (locals.scriptPost==2) { %>
             <script src="/javascripts/postuser.js"></script>
         <% } %>
-    
-    <%- include('../partials/styleSocket.ejs') %>
+
+        <script src="/javascripts/notifications.js"></script>
+        <%- include('../partials/styleSocket.ejs') %>
 </body>
 
 </html>

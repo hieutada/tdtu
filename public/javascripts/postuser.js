@@ -1,20 +1,23 @@
 $(document).ready(function () {
-
     $.ajax({
         url: '/api/post',
         type: 'GET',
         success: (allPost) => {
 
-            console.log(allPost[0].who._id)
 
-            // for (let i=0; i<allPost.length; i++) {
+            let userPosts = []
+            for (let i=0; i<allPost.length; i++) {
 
-            // }
+                if (allPost[i].who._id == idshowuser) {
+                    userPosts.push(allPost[i])
+                }
+            }
 
-            var reAllPost = allPost.reverse()
 
-            for (var i = 0; i < 5; i++) {
-                let status = statusBox(reAllPost[i])
+            var reUserPosts = userPosts.reverse()
+
+            for (var i = 0; i < 10; i++) {
+                let status = statusBox(reUserPosts[i])
                 $('#timeline').append(status)
             }
 
@@ -22,18 +25,18 @@ $(document).ready(function () {
 
             $(window).scroll(function () {
 
-                if ($(window).scrollTop() + $(window).height() + 1 > $(document).height() && page <= reAllPost.length) {
+                if ($(window).scrollTop() + $(window).height() + 1 > $(document).height() && page <= reUserPosts.length) {
 
                     let temp = page
                     
-                    if (page + 10 > reAllPost.length) {
-                        page += (reAllPost.length - page)
+                    if (page + 10 > reUserPosts.length) {
+                        page += (reUserPosts.length - page)
                     } else {
                         page += 10
                     }
 
                     for (let i = temp; i < page; i++) {
-                        let status = statusBox(reAllPost[i])
+                        let status = statusBox(reUserPosts[i])
                         $('#timeline').append(status)
                     }
                 }
@@ -52,10 +55,9 @@ function convertEmbed(url) {
 }
 
 function statusBox(post) {
-
     var action = ``
 
-    if (post.who._id == getID) {
+    if (getEditElement == 'true') {
         action = `
             <div class="dropdown">
                 <button class="btn" type="button" id="drop${post._id}" data-toggle="dropdown" aria-haspopup="true"

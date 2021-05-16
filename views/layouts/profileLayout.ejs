@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%-title%></title>
+    <%- include('../partials/styleCSS.ejs') %>
+</head>
+<body>
+    <%-body%>
+
+    <!-- JS -->
+    <%- include('../partials/styleJS.ejs') %>
+    <script>
+        $(".custom-file-input").on("change", function () {
+                console.log('This')
+                var fileName = $(this).val().split("\\").pop();
+                $(this)
+                    .siblings(".custom-file-label")
+                    .addClass("selected")
+                    .html(fileName)
+        })
+    </script>
+
+    <% var id = idUser %>
+    <% var avatar = profilePic %>
+    <% var getIdShowUser = idUser %>
+    <% var editElement = edit %>
+    <script>
+        var getID = `<%= id  %>`
+        var profilePic = `<%= avatar %>`
+        var idshowuser = `<%= getIdShowUser %>`
+        var getEditElement = `<%= editElement %>`
+        console.log(getEditElement)
+    </script>
+
+    <% if (locals.scriptPost==1) { %>
+        <script src="/javascripts/post.js"></script>
+    <% } else if (locals.scriptPost==2) { %>
+        <script src="/javascripts/postuser.js"></script>
+    <% } %>
+</body>
+</html>

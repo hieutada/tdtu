@@ -125,7 +125,7 @@ function statusBox(post) {
                             alt="" />
                     </div>
                     <div class="ml-2">
-                        <div class="h6 m-0"><a href="#" class="text-dark">${post.who.displayName}</a>
+                        <div class="h6 m-0"><a href="/profile/${post.who._id}" class="text-dark">${post.who.displayName}</a>
                         </div>
                         <small>20/11/2020 11:20 am</small>
                     </div>

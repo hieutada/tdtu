@@ -1,18 +1,22 @@
 const express = require('express')
 const router = express.Router()
-const app = express()
 const middleware = require('../middleware')
-
-app.set("view engine", "ejs")
 
 router.get('/', middleware.requireLogin, (req, res)=>{
     let user = req.user
-    res.render('profile', {
+    res.render('notifications', {
+        title: 'Notifications',
+        layout: './layouts/generalLayout',
         displayName: user.displayName,
         profilePic: user.profilePic,
         username: user.username,
-        createdAt: user.createdAt
+        idUser: user._id,
+        roleUser: user.role
     })
 })
 
+// router.get('/show/:id',  async (req, res)=>{
+//     var noti = await Notification.findById(req.params.id)
+    
+// })
 module.exports = router
