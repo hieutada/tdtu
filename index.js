@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 
 const app = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT
 
 const path = require('path')
 const session = require('express-session')
