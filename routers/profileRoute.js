@@ -14,39 +14,36 @@ const locallistmajor = [
     'Khoa giáo dục quốc tế'
 ]
 
-router.get('/', middleware.requireLogin, (req, res)=>{
-    let user = req.user
-    res.render('profile', {
-        title: user.displayName,
-        layout: './layouts/generalLayout',
-        displayName: user.displayName,
-        profilePic: user.profilePic,
-        username: user.username,
-        idUser: user._id,
-        roleUser: user.role,
-        grade: user.grade,
-        major: user.major,
-        listmajor: locallistmajor,
-        scriptPost: 2
-    })
-})
+// router.get('/', middleware.requireLogin, (req, res)=>{
+//     let user = req.user
+//     res.render('profile', {
+//         title: user.displayName,
+//         layout: './layouts/generalLayout',
+//         displayName: user.displayName,
+//         profilePic: user.profilePic,
+//         username: user.username,
+//         idUser: user._id,
+//         roleUser: user.role,
+//         grade: user.grade,
+//         major: user.major,
+//         listmajor: locallistmajor,
+//         scriptPost: 2
+//     })
+// })
 
 router.get('/:idshowuser', middleware.requireLogin, async (req, res)=>{
 
     // user đang xem
     let user_view = await Users.findOne({_id: req.params.idshowuser})
-    console.log(user_view._id)
 
     // id user hiện tại đang đăng nhập
     let id_user_current = req.user._id
-    console.log(id_user_current)
 
     // có quyền edit hay ko
     let edit = false
     if (String(user_view._id) == String(id_user_current)) {
         edit = true
     }
-    console.log(edit)
 
     // xem nguoi dung bat ki
     res.render('profile', {
@@ -60,8 +57,8 @@ router.get('/:idshowuser', middleware.requireLogin, async (req, res)=>{
         grade: user_view.grade,
         major: user_view.major,
         listmajor: locallistmajor,
-        scriptPost: 2,
-        edit : edit
+        edit : edit,
+        script: '/javascripts/postuser.js'
     })
 })
 

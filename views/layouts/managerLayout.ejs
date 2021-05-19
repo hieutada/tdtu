@@ -52,12 +52,11 @@
     <!-- JS -->
     <%- include('../partials/styleJS.ejs') %>
 
-    <% var id = idUser %>
     <script>
-        var getID = `<%= id  %>`
+        var getID = '<%= idUser  %>'
     </script>
+    <script src="<%= script %>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-    <script src="/javascripts/manager.js"></script>
     <script src="/javascripts/socketClient.js"></script>
 </body>
 

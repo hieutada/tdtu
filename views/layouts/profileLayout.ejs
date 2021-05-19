@@ -23,22 +23,13 @@
         })
     </script>
 
-    <% var id = idUser %>
-    <% var avatar = profilePic %>
-    <% var getIdShowUser = idUser %>
-    <% var editElement = edit %>
     <script>
-        var getID = `<%= id  %>`
-        var profilePic = `<%= avatar %>`
-        var idshowuser = `<%= getIdShowUser %>`
-        var getEditElement = `<%= editElement %>`
-        console.log(getEditElement)
+        var getID = '<%= idUser  %>'
+        var profilePic = '<%= profilePic %>'
+        var idshowuser = '<%= idUser %>'
+        var getEditElement = '<%= edit %>'
     </script>
 
-    <% if (locals.scriptPost==1) { %>
-        <script src="/javascripts/post.js"></script>
-    <% } else if (locals.scriptPost==2) { %>
-        <script src="/javascripts/postuser.js"></script>
-    <% } %>
+    <script src="<%= script %>"></script>
 </body>
 </html>

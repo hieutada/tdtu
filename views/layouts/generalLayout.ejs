@@ -148,20 +148,14 @@
         </script>
 
         <!-- User -->
-        <% var id=idUser %>
-        <% var avatar=profilePic %>
-            <script>
-                var getID = `<%= id  %>`
-                var profilePic = `<%= avatar %>`
-            </script>
-
-        <% if (locals.scriptPost==1) { %>
-            <script src="/javascripts/post.js"></script>
-        <% } else if (locals.scriptPost==2) { %>
-            <script src="/javascripts/postuser.js"></script>
-        <% } %>
+        <script>
+            var getID = '<%= idUser  %>'
+            var profilePic = '<%= profilePic %>'
+        </script>
 
         <script src="/javascripts/notifications.js"></script>
+
+        <script src="<%= script %>"></script>
         <%- include('../partials/styleSocket.ejs') %>
 </body>
 
