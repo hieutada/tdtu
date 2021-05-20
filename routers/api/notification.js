@@ -18,23 +18,21 @@ router.get('/', async (req, res) => {
     return res.status(200).send(allNoti)
 })
 
-// router.get('/',  async (req, res) =>{
-//     var data = await User.find({role: 'faculty'})
-//     return res.status(200).send(data)
-// })
-// router.put('/:id',  async (req, res) =>{
-//     var user = await User.findByIdAndUpdate(req.params.id, {"$set": req.body}, {new: true})
-//     return res.sendStatus(200)
-    
-// })
-// router.delete('/:id',  async (req, res) =>{
-//     var user = await User.findByIdAndDelete(req.params.id)
-//     return res.sendStatus(200)
-    
-// })
-// router.get('/:id', async (req,res)=>{
-//     User.findById(req.params.id).then((user) =>{
-//         return res.status(200).send(user)
-//     })
-// })
+router.get('/:id', async (req, res) => {
+    let id = req.params.id
+    let allNoti = await Notification.find({postedBy: id})
+    return res.status(200).send(allNoti)
+})
+
+
+router.put('/:id', async (req, res) =>{
+    await Notification.findByIdAndUpdate(req.params.id, {"$set": req.body}, {new: true})
+    return res.sendStatus(200)
+})
+
+router.delete('/:id',  async (req, res) => {
+    await Notification.findByIdAndDelete(req.params.id)
+    return res.sendStatus(200) 
+})
+
 module.exports = router

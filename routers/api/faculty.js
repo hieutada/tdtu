@@ -14,12 +14,12 @@ router.get('/',  async (req, res) =>{
     return res.status(200).send(data)
 })
 router.put('/:id',  async (req, res) =>{
-    var user = await User.findByIdAndUpdate(req.params.id, {"$set": req.body}, {new: true})
+    await User.findByIdAndUpdate(req.params.id, {"$set": req.body}, {new: true})
     return res.sendStatus(200)
     
 })
 router.delete('/:id',  async (req, res) =>{
-    var user = await User.findByIdAndDelete(req.params.id)
+    await User.findByIdAndDelete(req.params.id)
     return res.sendStatus(200)
     
 })

@@ -56,6 +56,7 @@ router.get('/:idshowuser', middleware.requireLogin, async (req, res)=>{
         roleUser: user_view.role,
         grade: user_view.grade,
         major: user_view.major,
+        role: user_view.role,
         listmajor: locallistmajor,
         edit : edit,
         script: '/javascripts/postuser.js'

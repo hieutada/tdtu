@@ -59,34 +59,34 @@
             </tr>
         </thead>
         <tbody>
-            <% for(let i=0; i < 10 ; i++){ %>
-                <tr id="row<%= i+1 %>">
-                    <th><%= i+1 %></th>
-                    <td>TIÊU ĐỀ THÔNG BÁO</td>
+            <% noti.forEach((e, index) => { %>
+                <tr id="<%= e._id %>">
+                    <th><%= index+1 %></th>
+                    <td><%= e.title %></td>
                     <td class="text-right">
                         <!-- Xem chi tiết -->
-                        <button class="btn btn-sm btn-outline-primary">
+                        <a class="btn btn-sm btn-outline-primary" href="/notifications/detail/<%= e._id %>">
                             Chi tiết
-                        </button>
+                        </a>
                         <!-- Sửa -->
                         <button class="btn btn-sm btn-outline-info btn-edit-notification"
-                        data-id="<%= i+1 %>"
-                        data-title="Thông báo <%= i+1 %>"
-                        data-content="Nội dung <%= i+1 %>"
+                        data-id="<%= e._id %>"
+                        data-title="<%= e.title %>"
+                        data-content="<%= e.content %>"
                         data-toggle="modal"
                         data-target="#confirm-edit-notification">
                             <i class="fa fa-pencil"></i>
                         </button>
                         <!-- Xóa -->
                         <button class="btn btn-sm btn-outline-danger btn-delete-notification"
-                        data-id="<%= i+1 %>"
+                        data-id="<%= e._id %>"
                         data-toggle="modal"
                         data-target="#confirm-delete-notification">
                             <i class="fa fa-trash"></i>
                         </button>
                     </td>
                 </tr>
-                <% } %>
+                <% }) %>
         </tbody>
     </table>
 </div>

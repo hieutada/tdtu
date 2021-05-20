@@ -1,27 +1,28 @@
-$(document).ready(()=>{
-    $.get('/api/faculty/' + getID, result =>{
-        if(result.role == "admin"){
-            $.get('/api/faculty', results =>{
+$(document).ready(() => {
+    $.get('/api/faculty/' + getID, result => {
+        if (result.role == "admin") {
+            $.get('/api/faculty', results => {
                 renderListAccount('listAccount', results.reverse())
             })
-        }else{
+        } else {
             var access = result.access.split(',')
             var list = document.getElementsByClassName('createCategory')
-            for(var i = 0; i < list.length; i++){
-                if(!access.includes($(list[i]).val())){
+            for (var i = 0; i < list.length; i++) {
+                if (!access.includes($(list[i]).val())) {
                     $(list[i]).prop('disabled', 'false')
                 }
             }
         }
     })
-    
+
 })
-function renderListAccount(element, data){
+
+function renderListAccount(element, data) {
     var html = ``
-    data.forEach((e, index) =>{
+    data.forEach((e, index) => {
         html = html + `
         <tr id="">
-            <th>${index+1}</th>
+            <th>${index + 1}</th>
             <td>${e.displayName}</td>
             <td>${e.username}</td>
             <td>${e.password}</td>
@@ -49,8 +50,9 @@ function renderListAccount(element, data){
     })
     $('.listAccount').html(html)
 }
+
 // 1.1 EDIT
-$(document).on('click', '.btn-edit-user', function() {
+$(document).on('click', '.btn-edit-user', function () {
     let id = $(this).attr("data-id")
     let username = $(this).attr("data-username")
     let password = $(this).attr("data-password")
@@ -58,20 +60,20 @@ $(document).on('click', '.btn-edit-user', function() {
     let access = $(this).attr('data-access').split(',')
     $('#btn-edit-user-confirmed').attr('data-id', id)
     $('#edit-username').val(username)
-    $('#edit-password') .val(password)
+    $('#edit-password').val(password)
     $('#edit-name').val(name)
     var list = document.getElementsByClassName('createCategory2')
-    for(var i = 0; i < list.length; i++){
-        if(access.includes($(list[i]).val())){
+    for (var i = 0; i < list.length; i++) {
+        if (access.includes($(list[i]).val())) {
             list[i].checked = true
         }
     }
-    
+
 
 })
 
 // 1.2 REMOVE
-$(document).on('click', '.btn-delete-user',function(){
+$(document).on('click', '.btn-delete-user', function () {
     let id = $(this).attr("data-id")
     let name = $(this).attr("data-name")
 
@@ -81,16 +83,16 @@ $(document).on('click', '.btn-delete-user',function(){
 })
 
 // 1.3 PROCESS DB
-$('#btn-edit-user-confirmed').on('click', function(event){
+$('#btn-edit-user-confirmed').on('click', function (event) {
     // do something
     var access = []
     var list = document.getElementsByClassName('createCategory2')
-    for(var i = 0; i < list.length; i++){
-        if(list[i].checked == true){
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].checked == true) {
             access.push($(list[i]).val())
         }
     }
-    console.log(access)
+
     var access2 = access.toString()
     var data = {
         username: $('#edit-username').val(),
@@ -102,21 +104,21 @@ $('#btn-edit-user-confirmed').on('click', function(event){
         url: '/api/faculty/' + $(this).attr('data-id'),
         type: "PUT",
         data: data,
-        success: ()=>{
+        success: () => {
             location.reload()
         }
     })
     $('.close').click()
 })
 
-$('#btn-delete-user-confirmed').on('click', function(){
+$('#btn-delete-user-confirmed').on('click', function () {
     // do something
     let id = $(this).attr("data-id")
-    console.log(id)
+
     $.ajax({
         url: '/api/faculty/' + id,
         type: "DELETE",
-        success: ()=>{
+        success: () => {
             location.reload()
         }
     })
@@ -124,29 +126,29 @@ $('#btn-delete-user-confirmed').on('click', function(){
 })
 
 //1.4 CREATE ACCOUNT
-$('.createAccount').on('click', function(){
-   
+$('.createAccount').on('click', function () {
+
     var access = []
     var list = document.getElementsByClassName('createCategory')
-    for(var i = 0; i < list.length; i++){
-        if(list[i].checked == true){
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].checked == true) {
             access.push($(list[i]).val())
         }
     }
-     var data = {
+    var data = {
         username: $("#username").val(),
         password: $("#password").val(),
-        displayName:$("#name").val(),
+        displayName: $("#name").val(),
         role: "faculty",
         access: access.toString()
-        
+
     }
 
     $.ajax({
         url: '/api/faculty',
         type: "POST",
         data: data,
-        success: ()=>{
+        success: () => {
             location.reload()
         }
     })

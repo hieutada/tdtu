@@ -1,3 +1,17 @@
+// $(document).ready(function () {
+//     console.log('This')
+//     $.ajax({
+//         url: `/api/notification/${getID}`,
+//         type: 'GET',
+//         success: (allNoti) => {
+//             console.log('OK')
+//         }
+//     })
+
+// })
+
+
+
 // CREATE NOTIFICATION
 $('#create-notification').on('click', function(){
     var title = $("#title").val()
@@ -15,6 +29,7 @@ $('#create-notification').on('click', function(){
         category: category,
         postedBy: getID
     }
+
     $.ajax({
         url: '/api/notification',
         type: 'POST',
@@ -31,7 +46,7 @@ $('.btn-edit-notification').on('click', function() {
     let title = $(this).attr("data-title")
     let content = $(this).attr("data-content")
 
-    $('#btn-edit-confirmed').attr('data-title', id)
+    $('#btn-edit-notification-confirmed').attr('data-id', id)
     $('#edit-title').val(title)
     $('#edit-content').val(content)
 })
@@ -44,12 +59,33 @@ $('.btn-delete-notification').on('click', function(){
 
 // 2.3 PROCESS DB
 $('#btn-edit-notification-confirmed').on('click', function(){
-    // do something
+    let id = $(this).attr("data-id")
+
+    data = {
+        title : $('#edit-title').val(),
+        content : $('#edit-content').val()
+    }
+    console.log(id)
+    $.ajax({
+        url: `/api/notification/${id}`,
+        type: "PUT",
+        data: data,
+        success: () => {
+            location.reload()
+        }
+    })
     $('.close').click()
 })
+
 $('#btn-delete-notification-confirmed').on('click', function(){
     // do something
     let id = $(this).attr("data-id")
-    $(`#${id}`).remove()
-    $('.close').click()
+    $.ajax({
+        url: `/api/notification/${id}`,
+        type: 'DELETE',
+        success: () => {
+            $(`#${id}`).remove()
+            $('.close').click()
+        }
+    })
 })

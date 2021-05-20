@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <%- title %>
-    </title>>
+    </title>
 
     <%- include('../partials/styleCSS.ejs') %>
 </head>
@@ -34,7 +34,7 @@
                             <i class="fa fa-user"></i> TÀI KHOẢN
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/profile"><i class="fa fa-info"></i> Cá nhân</a>
+                            <a class="dropdown-item" href="/profile/<%= idUser %>"><i class="fa fa-info"></i> Cá nhân</a>
                             <a class="dropdown-item" href="/auth/logout">
                                 <i class="fa fa-sign-out"></i> Đăng xuất
                             </a>

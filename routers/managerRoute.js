@@ -3,6 +3,8 @@ const passport = require('passport')
 const app = express()
 const router = express.Router()
 const middleware = require('../middleware')
+const User = require('../models/userModel')
+const Notification = require('../models/notificationModel')
 
 app.set("view engine", "ejs")
 
@@ -23,11 +25,14 @@ router.get('/admin', middleware.requireLoginAdmin, (req, res) => {
     })
 })
 
-router.get('/faculty', middleware.requireLoginFaculty, (req, res) => {
+router.get('/faculty', middleware.requireLoginFaculty, async (req, res) => {
+    let noti = await Notification.find({postedBy: req.user._id})
+
     return res.render('faculty-manager', {
         title: 'Phòng Khoa',
         layout: './layouts/managerLayout',
         idUser: req.user._id,
+        noti : noti.reverse(),
         script: '/javascripts/faculty.js'
     })
 })

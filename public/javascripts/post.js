@@ -232,13 +232,3 @@ $('#comfirm-delete-btn').click((e) => {
         }
     })
 })
-
-function showNoti(noti){
-    $('.notiRealtime').attr('style', 'display:block')
-    $('.notiRealtime').html(`
-        ${noti.postedBy.displayName} vừa đăng <a href="/notification/show/${noti._id}">1 thông báo mới!</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    `)
-}
