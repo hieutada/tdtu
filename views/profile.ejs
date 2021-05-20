@@ -19,16 +19,18 @@
                             <div class="text-muted">Khoa: Công Nghệ Thông Tin</div>
                             <div class="text-muted">Lớp: <%= grade %>
                             </div>
-                            <% if (edit == true) { %>
+                            <% if (edit==true) { %>
                                 <button class="btn btn-sm px-0" type="button" data-toggle="collapse"
                                     data-target="#collapseEditProfile" aria-expanded="false"
                                     aria-controls="collapseExample">
                                     Chỉnh sửa <i class="fa fa-pencil"></i>
                                 </button>
-                            <% } %>
+                                <% } %>
                         </div>
                         <div class="text-center text-sm-right">
-                            <span class="badge badge-secondary"><%= role %></span>
+                            <span class="badge badge-secondary">
+                                <%= role %>
+                            </span>
                             <div class="text-muted">
                                 <small>
                                     Đã tạo: 01/04/2021
@@ -40,7 +42,7 @@
                 </div>
 
                 <!-- EDIT -->
-                <% if (edit == true) { %>
+                <% if (edit==true) { %>
                     <form class="form collapse mt-2" id="collapseEditProfile">
                         <div class="row">
                             <div class="col-md">
@@ -114,9 +116,9 @@
                             </div>
                         </div>
                     </form>
-                <% } %>
-                
-                
+                    <% } %>
+
+
             </div>
         </div>
     </div>
@@ -129,5 +131,66 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<!-- DELETE POST MODAL -->
+<div class="modal fade" id="confirm-delete-dialog" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Xóa bài viết</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc muốn xóa bài viết</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="comfirm-delete-btn" value="">Xóa</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- EDIT POST MODAL -->
+<div class="modal fade" id="confirm-edit-dialog" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Chỉnh sửa bài viết</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Bài viết</label>
+                    <textarea class="form-control form-control-sm" id="edit-inputPost" rows="3"
+                        placeholder="Bạn đang nghĩ gì?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Hình ảnh</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="edit-customFile" accept="image/png, image/jpeg" />
+                        <label class="custom-file-label" for="customFile">Chọn file</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Youtube</label>
+                    <input id="edit-linkYT" type="text" class="form-control form-control-sm"
+                        placeholder="Chỉnh sửa liên kết Youtube" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="comfirm-delete-btn" value="">Cập nhật</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
     </div>
 </div>

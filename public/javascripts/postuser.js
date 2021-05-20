@@ -188,3 +188,24 @@ function statusBox(post) {
     </div>
     `
 }
+
+function deleteBtn() {
+    $(this).click(e => {
+        let btn = e.target
+        let id = btn.dataset.id
+        $('#comfirm-delete-btn').val(id)
+    })
+}
+
+$('#comfirm-delete-btn').click((e) => {
+    let id = $('#comfirm-delete-btn').val()
+    $('.close').click()
+    $.ajax({
+        url: '/api/post',
+        type: 'DELETE',
+        data: { id: id },
+        success: () => {
+            $(`#${id}`).remove()
+        }
+    })
+})
