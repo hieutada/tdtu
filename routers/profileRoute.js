@@ -48,7 +48,7 @@ router.get('/:idshowuser', middleware.requireLogin, async (req, res)=>{
     // xem nguoi dung bat ki
     res.render('profile', {
         title: user_view.displayName,
-        layout: './layouts/profileLayout',
+        layout: './layouts/layout',
         displayName: user_view.displayName,
         profilePic: user_view.profilePic,
         username: user_view.username,

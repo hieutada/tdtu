@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%-title%></title>
+    
     <%- include('../partials/styleCSS.ejs') %>
 </head>
 <body>
+
     <%-body%>
 
     <!-- JS -->
@@ -24,12 +26,12 @@
     </script>
 
     <script>
-        var getID = '<%= idUser  %>'
-        var profilePic = '<%= profilePic %>'
-        var idshowuser = '<%= idUser %>'
-        var getEditElement = '<%= edit %>'
+        var getID = '<%= locals.idUser  %>'
+        var profilePic = '<%= locals.profilePic %>'
+        var idshowuser = '<%= locals.idUser %>'
+        var getEditElement = '<%= locals.edit %>'
     </script>
 
-    <script src="<%= script %>"></script>
+    <script src="<%= locals.script %>"></script>
 </body>
 </html>

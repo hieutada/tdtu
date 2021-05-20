@@ -15,7 +15,7 @@ router.get('/', middleware.requireLogin, (req, res) => {
 })
 
 router.get('/admin', middleware.requireLoginAdmin, (req, res) => {
-    return res.render('admin', {
+    return res.render('admin-manager', {
         title: 'Admin',
         layout: './layouts/managerLayout',
         idUser: req.user._id,
@@ -24,7 +24,7 @@ router.get('/admin', middleware.requireLoginAdmin, (req, res) => {
 })
 
 router.get('/faculty', middleware.requireLoginFaculty, (req, res) => {
-    return res.render('faculty', {
+    return res.render('faculty-manager', {
         title: 'Phòng Khoa',
         layout: './layouts/managerLayout',
         idUser: req.user._id,

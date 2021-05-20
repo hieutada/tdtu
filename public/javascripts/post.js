@@ -9,7 +9,7 @@ $(document).ready(function () {
 
             var reAllPost = allPost.reverse()
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 0; i < 10; i++) {
                 let status = statusBox(reAllPost[i])
                 $('#timeline').append(status)
             }

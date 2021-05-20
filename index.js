@@ -57,11 +57,10 @@ app.get('/', middleware.requireLogin, (req, res)=>{
         username: user.username,
         idUser: user._id,
         roleUser: user.role,
-        scriptPost: 1,
-        script: '/javascripts/post.js'
+        scriptPost: '/javascripts/post.js',
+        scriptNoti: '/javascripts/notification.js'
     })
 })
-
 
 io.on('connection', (socket)=>{
     socket.on('setup', userData =>{

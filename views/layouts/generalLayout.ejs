@@ -10,9 +10,9 @@
         <%- title %>
     </title>
 
-    <link rel="stylesheet" href="css\simple-sidebar.css" />
-    <link rel="stylesheet" href="css\loader.css">
-
+    <link rel="stylesheet" href="css/simple-sidebar.css" />
+    <link rel="stylesheet" href="css/loader.css">
+    
     <%- include('../partials/styleCSS.ejs') %>
 </head>
 
@@ -40,7 +40,7 @@
                         <i class="fa fa-user"></i> TÀI KHOẢN
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/profile"><i class="fa fa-info"></i> Cá nhân</a>
+                        <a class="dropdown-item" href="/profile/<%= idUser %>"><i class="fa fa-info"></i> Cá nhân</a>
                         <a class="dropdown-item" href="/auth/logout">
                             <i class="fa fa-sign-out"></i> Đăng xuất
                         </a>
@@ -58,12 +58,8 @@
                 <a href="/profile/<%= idUser %>" class="d-flex">
                     <img class="rounded-circle" width="45" height="45" src="<%= profilePic %>" alt="" />
                     <div class="ml-3">
-                        <div class="h6 m-0">
-                            <%= displayName %>
-                        </div>
-                        <small>
-                            <%= roleUser %>
-                        </small>
+                        <div class="h6 m-0"><%= displayName %></div>
+                        <small><%= roleUser %></small>
                     </div>
                 </a>
             </div>
@@ -84,7 +80,7 @@
                         <i class="fa fa-list"></i> Phân loại TB
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownClassify">
-                        <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Phòng Ban</a>
+                        <a class="dropdown-item" href="/notifications/faculty"><i class="fa fa-users"></i> Phòng Ban</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Chủ đề</a>
                         <a class="dropdown-item" href="/notifications"><i class="fa fa-archive"></i> Tất cả thông
                             báo</a>
@@ -155,7 +151,7 @@
 
         <script src="/javascripts/notifications.js"></script>
 
-        <script src="<%= script %>"></script>
+        <script src="<%= locals.scriptPost %>"></script>
         <%- include('../partials/styleSocket.ejs') %>
 </body>
 

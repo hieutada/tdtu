@@ -1,0 +1,13 @@
+<div class="container">
+    <h5 class="mt-3">Thông báo của <%= facultyName %></h5>
+    <table class="table">
+        <% notiList.forEach(e => { %>
+            <tr>
+                <td>
+                    <small><%= e.createdAt %></small> <br>
+                    <a href="/notifications/detail/<%= e._id %>"><%= e.title %></a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</div>

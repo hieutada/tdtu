@@ -1,23 +1,20 @@
-// Xu ly API
-
 const express = require('express')
 const router = express.Router()
 
-const Post = require('../../models/postModel')
 const User = require('../../models/userModel')
 const Notification = require('../../models/notificationModel')
 
 router.post('/', async (req, res) =>{
     Notification(req.body).save()
     .then(async (noti)=>{
-        var user = await User.findById(noti.postedBy)
-        noti.postedBy = user
+        noti.postedBy = await req.user
+        // console.log(noti.postedBy)
         return res.status(200).send(noti)
     })
 })
 
 router.get('/', async (req, res) => {
-    var allNoti = await Notification.find()
+    var allNoti = await Notification.find().populate('postedBy')
     return res.status(200).send(allNoti)
 })
 

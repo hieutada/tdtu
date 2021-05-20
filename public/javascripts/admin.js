@@ -18,10 +18,10 @@ $(document).ready(()=>{
 })
 function renderListAccount(element, data){
     var html = ``
-    data.forEach(e =>{
+    data.forEach((e, index) =>{
         html = html + `
         <tr id="">
-            <th></th>
+            <th>${index+1}</th>
             <td>${e.displayName}</td>
             <td>${e.username}</td>
             <td>${e.password}</td>
