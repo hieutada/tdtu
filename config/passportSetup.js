@@ -20,9 +20,9 @@ passport.use(new GoogleStrategy({
 },
     function (accessToken, refreshToken, profile, done) {
         
-        if ( profile.emails[0].value.search('student.tdtu.edu.vn') == -1) {
-            return done(null, false)
-        }
+//         if ( profile.emails[0].value.search('student.tdtu.edu.vn') == -1) {
+//             return done(null, false)
+//         }
 
         User.findOne({ googleID: profile.id })
             .then((currentUser) => {
